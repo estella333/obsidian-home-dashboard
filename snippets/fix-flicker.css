@@ -1,0 +1,30 @@
+/* ============ 修复侧边栏/日历闪烁、卡顿、图标拖影 ============ */
+/* 只针对文件树(nav)与日历(calendar)区域禁用 transition/animation，
+   不动主页(hp-*)的美化动画。配合关闭窗口半透明使用。 */
+
+.nav-file-title,
+.nav-folder-title,
+.nav-file,
+.nav-folder,
+.nav-file-tag,
+.calendar-container,
+.calendar-container *,
+.workspace-leaf,
+.workspace-tab-header,
+.workspace-tab-header-inner {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* 日历 hover 高亮改为瞬变，避免拖影 */
+.calendar-container .day:hover,
+.calendar-container .month:hover {
+  transition: none !important;
+}
+
+/* 文件树展开/折叠也禁用过渡 */
+.nav-folder-children,
+.nav-file-title-content {
+  transition: none !important;
+  animation: none !important;
+}

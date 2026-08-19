@@ -1,0 +1,318 @@
+/* ================= 主页美化 ================= */
+
+/* --- 问候区 --- */
+.hp-hero {
+  margin: 2px 0 16px;
+}
+.hp-greet {
+  font-size: 1.8em;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.hp-date {
+  color: var(--text-muted);
+  font-size: 0.95em;
+  margin-top: 3px;
+}
+
+/* --- 快捷按钮 --- */
+.hp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 0 20px;
+}
+.hp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 22px;
+  border-radius: 10px;
+  background: var(--interactive-accent);
+  color: #fff !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  font-size: 0.95em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.18);
+  transition: transform 0.1s ease, opacity 0.15s ease, box-shadow 0.15s ease;
+}
+.hp-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+}
+.hp-btn.alt {
+  background: var(--background-modifier-border);
+  color: var(--text-normal) !important;
+}
+.hp-btn.alt:hover {
+  background: var(--background-modifier-border-hover);
+}
+
+/* --- 统计卡片 --- */
+.hp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 26px;
+}
+.hp-card {
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 14px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.hp-card-title {
+  font-size: 0.88em;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.hp-card-body {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 进度环 */
+.hp-ring-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.hp-ring-label {
+  font-size: 0.85em;
+  color: var(--text-muted);
+}
+
+/* 周柱状图（含每日字数） */
+.hp-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+  width: 100%;
+  padding-top: 2px;
+}
+.hp-bar-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 3px;
+  height: 100%;
+}
+.hp-bar-num {
+  font-size: 0.66em;
+  color: var(--text-faint);
+  height: 13px;
+  line-height: 13px;
+  white-space: nowrap;
+}
+.hp-bar-col.today .hp-bar-num {
+  color: var(--color-green);
+  font-weight: 700;
+}
+.hp-bar {
+  width: 100%;
+  max-width: 24px;
+  border-radius: 5px 5px 2px 2px;
+  background: var(--interactive-accent);
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.hp-bar:hover {
+  opacity: 1;
+}
+.hp-bar-col.today .hp-bar {
+  background: var(--color-green);
+  opacity: 1;
+}
+.hp-bar-label {
+  font-size: 0.72em;
+  color: var(--text-faint);
+}
+.hp-bars-note {
+  margin-top: 8px;
+  font-size: 0.85em;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* 库统计（数字卡片合并） */
+.hp-stats-row {
+  display: flex;
+  width: 100%;
+  gap: 4px;
+}
+.hp-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.hp-stat + .hp-stat {
+  border-left: 1px solid var(--background-modifier-border);
+}
+.hp-num {
+  font-size: 1.9em;
+  font-weight: 800;
+  line-height: 1.1;
+  text-align: center;
+}
+.hp-num-label {
+  font-size: 0.82em;
+  color: var(--text-muted);
+  margin-top: 3px;
+  text-align: center;
+}
+
+/* --- 目标打卡（统计网格内第 4 张卡） --- */
+.hp-grid .hp-card.done {
+  border-color: var(--color-green);
+}
+.hp-checkin-body {
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+.hp-checkin-msg {
+  font-size: 0.88em;
+  line-height: 1.5;
+  text-align: center;
+}
+.hp-checkin-msg b {
+  color: var(--text-normal);
+}
+.hp-checkin-msg.ok {
+  color: var(--color-green);
+  font-weight: 700;
+}
+.hp-checkin-bar {
+  width: 100%;
+  height: 10px;
+  background: var(--background-modifier-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.hp-checkin-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.3s;
+}
+
+/* --- 最近打开 --- */
+.hp-recent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0 10px;
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--background-secondary) 55%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 14px;
+}
+.hp-recent-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 9px;
+  transition: background 0.12s ease, transform 0.12s ease;
+}
+.hp-recent-item:hover {
+  background: var(--background-modifier-hover);
+  transform: translateX(2px);
+}
+.hp-recent-icon {
+  font-size: 1.05em;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.hp-recent-item .internal-link {
+  font-weight: 600;
+  color: var(--text-normal);
+  text-decoration: none;
+}
+.hp-recent-item .internal-link:hover {
+  color: var(--interactive-accent);
+}
+
+/* --- 待办复选框美化（仅主页） --- */
+.homepage input[type="checkbox"] {
+  width: 17px;
+  height: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  accent-color: var(--interactive-accent);
+  transition: transform 0.1s ease;
+}
+.homepage input[type="checkbox"]:hover {
+  transform: scale(1.15);
+}
+.homepage .task-list-item {
+  padding: 3px 8px;
+  margin-left: -8px;
+  border-radius: 8px;
+  transition: background 0.12s ease;
+}
+.homepage .task-list-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+/* 待办清单半透明面板（仅 Home.md：按文件路径精确匹配，不依赖 cssclasses） */
+.workspace-leaf-content[data-path="Home.md"] ul.contains-task-list,
+.homepage ul.contains-task-list {
+  margin: 6px 0 12px;
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--background-secondary) 55%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 14px;
+}
+
+/* 今日日记任务（dataview 输出）半透明面板 */
+.homepage .dataview.task-list {
+  margin: 6px 0 12px;
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--background-secondary) 55%, transparent);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+}
+
+/* --- 主页二级标题间距 --- */
+.homepage h2 {
+  margin-top: 30px;
+}
+
+/* --- 便签卡（与统计卡同网格，自动等高） --- */
+.hp-card-body.memo-body {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+}
+.hp-memo {
+  flex: 1;
+  width: 100%;
+  min-height: 84px;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  font: inherit;
+  font-size: 0.88em;
+  line-height: 1.65;
+  color: var(--text-normal);
+  padding: 2px;
+}
+.hp-memo::placeholder {
+  color: var(--text-faint);
+}
