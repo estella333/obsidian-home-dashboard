@@ -57,6 +57,10 @@ bash install.sh --no-plugins               # 不自动下载插件
 bash install.sh --with-study-time          # 额外安装「学习时间」统计（macOS）
 ```
 
+## 🤖 使用 Hermes skill 搭建
+
+本仓库同时提供 [Hermes Agent](https://hermes-agent.nousresearch.com) skill 版本（`docs/SKILL.md`，含完整模板/样式/脚本附属文件）。任何 Hermes 用户对 AI 说「用 obsidian-home-dashboard skill 给我的库搭主页」即可自动完成：定位库 → 渲染模板 → 装 CSS → 启用插件 → 验证。
+
 ## ⏱️ 学习时间（可选，macOS）
 
 首页的「学习时间」卡需要一个小型后台守护进程统计 Obsidian/Typora/预览 的前台使用时长：
