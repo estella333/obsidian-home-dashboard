@@ -208,16 +208,26 @@ def build_stats(daily, now=None):
     }
 
 
+def _write_json(path, obj):
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w") as f:
+        json.dump(obj, f, ensure_ascii=False)
+    os.replace(tmp, path)
+
+
 def recompute():
     sessions = load_sessions()
     daily = aggregate(sessions, read_state(), time.time())
     stats = build_stats(daily)
-    path = vault_stats_path()
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    tmp = path + ".tmp"
-    with open(tmp, "w") as f:
-        json.dump(stats, f, ensure_ascii=False)
-    os.replace(tmp, path)
+    # 主写：应用数据目录（无 TCC 限制，launchd 环境可靠）
+    _write_json(os.path.join(DATA_DIR, "study-time.json"), stats)
+    # 次写：vault 附件（Obsidian 可直接读）；被 TCC 拦截（如 vault 在
+    # ~/Desktop 且进程无桌面权限）时忽略，不影响主数据
+    try:
+        _write_json(vault_stats_path(), stats)
+    except Exception:
+        pass
     return stats
 
 
